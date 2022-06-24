@@ -38,9 +38,9 @@ post '/' do
   end
   # any bots in these locations?
 
-  if possible_attack_locations.any? { |loc| loc.in? response["arena"]["state"].values.map { |z| z.slice("x", "y").values } }
-    "T"
-  else
+  if (possible_attack_locations & response["arena"]["state"].values.map { |z| z.slice("x", "y").values }).empty?
     ['F', 'L', 'R'].sample
+  else
+    "T"
   end
 end
