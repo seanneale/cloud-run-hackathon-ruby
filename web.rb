@@ -12,7 +12,7 @@ get '/' do
 end
 
 post '/' do
-  puts JSON.parse(request.body.read)
+  # puts JSON.parse(request.body.read)
   response = JSON.parse(request.body.read)
 
   my_url = "https://cloud-run-hackathon-ruby-b342lijcia-uc.a.run.app"
@@ -38,6 +38,9 @@ post '/' do
   end
   # any bots in these locations?
 
-  return "T" if possible_attack_locations.any? { |loc| loc.in? response["arena"]["state"].values.map { |z| z.slice("x", "y").values } }
-  ['F', 'L', 'R'].sample
+  if possible_attack_locations.any? { |loc| loc.in? response["arena"]["state"].values.map { |z| z.slice("x", "y").values } }
+    "T"
+  else
+    ['F', 'L', 'R'].sample
+  end
 end
