@@ -17,13 +17,14 @@ post '/' do
 
   my_url = "https://cloud-run-hackathon-ruby-b342lijcia-uc.a.run.app"
 
+  own_details = response["arena"]["state"][my_url]
+
   moves = ['F', 'T', 'L', 'R']
 
   if own_details["wasHit"]
     ['F', 'L', 'R'].sample
   else
     # Check if anyone can be shot
-    own_details = response["arena"]["state"][my_url]
     # find own location
     current_loc = own_details.slice("x", "y").values
     # find own direction
@@ -46,5 +47,5 @@ post '/' do
       "T"
     end
   end
-  ['F', 'T', 'L', 'R'].sample
+  # ['F', 'T', 'L', 'R'].sample
 end
