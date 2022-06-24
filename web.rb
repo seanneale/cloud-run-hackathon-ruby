@@ -46,5 +46,5 @@ post '/' do
       "T"
     end
   end
-  # ['F', 'T', 'L', 'R'].sample
+  ['F', 'T', 'L', 'R'].sample
 end
