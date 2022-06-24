@@ -43,5 +43,5 @@ post '/' do
   else
     "T"
   end
-  ['F', 'T', 'L', 'R'].sample
+  # ['F', 'T', 'L', 'R'].sample
 end
