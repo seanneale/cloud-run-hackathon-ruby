@@ -35,7 +35,7 @@ post '/' do
     when "E"
       [1,2,3].map { |i| [current_loc[0] + i, current_loc[1]] }
     when "S"
-      [1,2,3].map { |i| [current_loc[0], current_loc[1] - i] }
+      [1,2,3].map { |i| [current_loc[0], current_loc[1] + i] }
     when "W"
       [1,2,3].map { |i| [current_loc[0] - i, current_loc[1]] }
     end
